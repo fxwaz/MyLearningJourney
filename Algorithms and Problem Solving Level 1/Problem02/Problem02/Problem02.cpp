@@ -20,9 +20,29 @@ void PrintUserName(string username)
 
 int main()
 {
+	
+	string username = ReadNameFromUser();
+	PrintUserName(username);
 
+
+
+
+	/*
+	 
+	This is my preferred solution for readability:
+
+	string username = ReadNameFromUser();
+	PrintUserName(username);
+
+
+
+	Alternative solution: 
 
 	PrintUserName(ReadNameFromUser());
+
+
+	*/
+	
 
 
 }
