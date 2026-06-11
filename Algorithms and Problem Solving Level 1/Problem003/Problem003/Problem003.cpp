@@ -1,20 +1,59 @@
-// Problem003.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Write a program that asks the user to enter a number if it is odd or an even number if it is even
 #include <iostream>
+using namespace std;
+
+
+enum enNumberType { Even = 1, Odd};
+
+
+
+int AskUserToEnterNumber()
+{
+	int UserNumber;
+
+	cout << "Please enter a number : ";
+	cin >> UserNumber;
+
+	return UserNumber;
+}
+
+
+enNumberType CheckNumberType(int UserNumber)
+{
+	int Result = UserNumber % 2;
+	if (Result == 0)
+	{
+		return enNumberType::Even;
+	}
+	else
+	{
+		return enNumberType::Odd;
+	}
+}
+
+
+void PrintNumberType(enNumberType NumberType)
+{
+
+	if (NumberType == enNumberType::Even)
+	{
+		cout << "\n\n Your number is Even buddy! \n\n";
+	}
+	else
+	{
+		cout << "\n\n Your number is Odd buddy! \n\n";
+	}
+
+
+}
+
+
+
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+	PrintNumberType(CheckNumberType(AskUserToEnterNumber()));
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
