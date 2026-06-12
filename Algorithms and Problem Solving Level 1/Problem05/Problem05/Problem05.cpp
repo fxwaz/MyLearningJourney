@@ -1,20 +1,68 @@
-// Problem05.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Write a program that asks the user to enter their age and license status and recommendation status, then prints "Hired" if they have a recommendation or if they are over 21 and have a driving license, otherwise prints "Rejected".
 #include <iostream>
+using namespace std;
+
+
+struct stUserInfo
+{
+	int Age;
+	bool HasDrivingLicense;
+	bool HasRecommendation;
+};
+
+
+
+stUserInfo ReadUserInfo()
+{
+	stUserInfo UserInfo;
+
+	cout << "Please enter your age : ";
+	cin >> UserInfo.Age;
+
+	cout << "Please enter if you have License, 1 for yes, 0 for no : ";
+	cin >> UserInfo.HasDrivingLicense;
+
+	cout << "Please enter if you have Recommendation, 1 for yes, 0 for no : ";
+	cin >> UserInfo.HasRecommendation;
+
+	return UserInfo;
+}
+
+bool IsUserAccepted(stUserInfo userInfo)
+{
+
+	if (userInfo.HasRecommendation)
+	{
+		return true;
+	}
+	else
+	{
+		return (userInfo.Age > 21 && userInfo.HasDrivingLicense);
+	}
+
+}
+
+void PrintResult(stUserInfo userInfo)
+{
+
+	if (IsUserAccepted(userInfo))
+	{
+		cout << "\n Hired \n";
+	}
+	else
+	{
+		cout << "\n Rejected \n";
+	}
+
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+
+	PrintResult(ReadUserInfo());
+
+
+
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
