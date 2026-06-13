@@ -1,20 +1,41 @@
-// Problem10.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Write a program that asks the user to enter three exam marks, then prints their average.
 #include <iostream>
+using namespace std;
+
+
+void ReadMarks(int &mark1, int &mark2, int &mark3)
+{
+
+	cout << "Please enter your first mark : ";
+	cin >> mark1;
+
+	cout << "Please enter your second mark : ";
+	cin >> mark2;
+
+	cout << "Please enter your third mark : ";
+	cin >> mark3;
+
+}
+
+int SumMarks(int mark1, int mark2, int mark3)
+{
+	return mark1 + mark2 + mark3;
+}
+
+float CalculateAverage(int mark1, int mark2, int mark3)
+{
+	return float(SumMarks(mark1, mark2, mark3)) / 3;
+}
+
+void PrintResult(float average)
+{
+	cout << "The Average is : " << average << endl;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int mark1, mark2, mark3;
+
+	ReadMarks(mark1, mark2, mark3);
+	PrintResult(CalculateAverage(mark1, mark2, mark3));
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
