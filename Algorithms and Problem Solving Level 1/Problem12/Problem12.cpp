@@ -1,20 +1,38 @@
-// Problem12.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Write a program that asks the user to enter two numbers, then prints the larger number.
 #include <iostream>
+using namespace std;
+
+
+void ReadNumbers(int &number1, int &number2)
+{
+
+	cout << "Please enter number one : ";
+	cin >> number1;
+
+	cout << "Please enter number two : ";
+	cin >> number2;
+
+}
+
+int GetMaxNumber(int number1, int number2)
+{
+
+	if (number1 > number2)
+		return number1;
+	else
+		return number2;
+	
+}
+
+void PrintResult(int MaxNumber)
+{
+	cout << "Max number is : " << MaxNumber << endl;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int number1, number2;
+
+	ReadNumbers(number1, number2);
+	PrintResult(GetMaxNumber(number1, number2));
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
