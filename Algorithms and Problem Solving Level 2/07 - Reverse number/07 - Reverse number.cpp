@@ -28,7 +28,7 @@ int ReverseNumber(int UserNumber)
 		Remainder = UserNumber % 10; 
 		UserNumber = UserNumber / 10; 
 		Reverse = Reverse * 10 + Remainder; 
-		// ليه نضرب في 10 ؟ لأننا نبي نحرك الرقم المعكوس عشان نضيف الرقم الجديد في خانة الآحاد
+		// ليه نضرب في 10 ؟ لأننا نبي نحرك الرقم المعكوس لليسار عشان نضيف الرقم الجديد في خانة الآحاد
 	}
 
 	return Reverse;
