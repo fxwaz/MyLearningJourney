@@ -1,20 +1,30 @@
-// 16 - All words from AAA to ZZZ.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+// Write a program to print all words from AAA to ZZZ
 #include <iostream>
+using namespace std;
+
+
+void PrintWords()
+{
+	for (int i = 65; i <= 70; i++)
+	{
+
+		for (int j = 65; j <= 70; j++)
+		{
+	
+
+			for (int x = 65; x <= 70; x++)
+			{
+				cout << char(i) << char(j) << char(x) << endl;
+			}
+
+
+		}
+		
+		
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	PrintWords();
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
