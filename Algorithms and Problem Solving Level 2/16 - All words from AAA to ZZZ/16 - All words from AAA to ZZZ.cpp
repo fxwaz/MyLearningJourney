@@ -5,14 +5,14 @@ using namespace std;
 
 void PrintWords()
 {
-	for (int i = 65; i <= 70; i++)
+	for (int i = 65; i <= 90; i++)
 	{
 
-		for (int j = 65; j <= 70; j++)
+		for (int j = 65; j <= 90; j++)
 		{
 	
 
-			for (int x = 65; x <= 70; x++)
+			for (int x = 65; x <= 90; x++)
 			{
 				cout << char(i) << char(j) << char(x) << endl;
 			}
