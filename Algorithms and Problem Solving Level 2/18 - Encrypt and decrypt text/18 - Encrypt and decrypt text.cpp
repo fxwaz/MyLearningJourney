@@ -1,41 +1,59 @@
 // write a program to read a text and encrypt it, decrypt it.
 #include <iostream>
+#include <string>
 using namespace std;
 
 
-string ReadText(string Text)
+string ReadText(string Message)
 {
 	string UserText; 
 
-	cout << Text;
-	cin >> UserText;
+	cout << Message;
+	getline(cin, UserText);
 
 	return UserText;
-}
-
-int CheckLength(string UserText)
-{
-	return UserText.length();
 }
 
 string EncryptText(string Text)
 {
 	int TextLength = Text.length() - 1;
-	string NewText = "";
+	short EncryptionKey = 10;
 
-	for (int i = 1; i <= TextLength; i++)
+	for (int i = 0; i <= TextLength; i++)
 	{
-		NewText = NewText + Text[0+1];
+		Text[i] = Text[i] + EncryptionKey;
 	}
 
-	return NewText;
+	return Text;
+}
+
+
+
+string DecryptText(string Text)
+{
+	int TextLength = Text.length() - 1;
+	short EncryptionKey = 10;
+
+	for (int i = 0; i <= TextLength; i++)
+	{
+		Text[i] = Text[i] - EncryptionKey;
+	}
+
+	return Text;
+}
+
+void PrintResult(string message, string result)
+{
+	cout << message << result << endl;
 }
 
 int main()
 {
-	string Name = "Fawaz";
+	string Text = ReadText("Please enter a text : ");
+	string TextAfterEncryption = EncryptText(Text);
+	string TextAfterDecryption = DecryptText(TextAfterEncryption);
 
-	Name[0] = 68;
-
-	cout << Name;
+	PrintResult("\nOriginal Text : ", Text);
+	PrintResult("Text after Encryption : ", TextAfterEncryption);
+	PrintResult("Text after Decryption : ", TextAfterDecryption);
 }
