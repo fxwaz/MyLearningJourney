@@ -1,0 +1,4 @@
+Hello It's my first time writing to a file!!
+Fawaz
+
+New text added by append mode
