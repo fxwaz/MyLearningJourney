@@ -11,8 +11,8 @@ This repository contains my solutions, notes, and practice code while progressin
 |03|C++ Level 1|Completed ✅|
 |04|Algorithms and Problem Solving Level 1|Completed ✅|
 |05|Algorithms and Problem Solving Level 2|Completed ✅|
-|06|C++ Level 2|In Progress⏳|
-|07|Algorithms and Problem Solving Level 3|Planned|
+|06|C++ Level 2|Completed ✅|
+|07|Algorithms and Problem Solving Level 3|In Progress ⏳|
 |08|Algorithms and Problem Solving Level 4|Planned|
 |09|Foundations Level 2|Planned|
 |10|OOP Level 1|Planned|
