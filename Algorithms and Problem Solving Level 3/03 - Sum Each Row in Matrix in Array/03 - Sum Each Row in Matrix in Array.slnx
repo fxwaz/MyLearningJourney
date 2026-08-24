@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="03 - Sum Each Row in Matrix in Array.vcxproj" />
+</Solution>
