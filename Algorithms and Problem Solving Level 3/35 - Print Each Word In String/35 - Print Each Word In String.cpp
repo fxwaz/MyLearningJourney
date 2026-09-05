@@ -12,31 +12,39 @@ string ReadString()
 	cout << "Please enter your string : ";
 	getline(cin, UserString);
 
-	return UserString;
+	return UserString;	
 }
 
 void PrintEachWordInString(string Text)
 {
-	bool IsInWord = false;
+	string Space = " ";
+	string StringWord;
+	int SpacePosition = 0;
 
-	for (int i = 0; i < Text.length(); i++)
+	//Fawaz  Alzahrani
+	while ((SpacePosition = Text.find(Space)) != string::npos)
 	{
-		if (Text[i] != ' ')
+		StringWord = Text.substr(0, SpacePosition);
+
+		if (StringWord != "")
 		{
-			cout << Text[i];
-			IsInWord = true;
+			cout << StringWord << endl;
 		}
-		else if (IsInWord)
-		{
-			cout << endl;
-			IsInWord = false;
-		}
-	
+
+		Text.erase(0, SpacePosition + Space.length());
+	}
+
+	if (Text != "")
+	{
+		cout << Text << endl;
 	}
 }
 
 
+
 int main()
 {
-	PrintEachWordInString(ReadString());
+	string Stringg = ReadString();
+
+	PrintEachWordInString(Stringg);
 }
