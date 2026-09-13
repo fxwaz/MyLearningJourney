@@ -68,12 +68,12 @@ void AddNewClient()
 void AddClients()
 {
 	char Continue = 'Y';
-	int i = 0;
 
 	do
 	{
+		system("cls");
 
-		cout << "Enter Client [" << i + 1 << "] Data : \n\n";
+		cout << "Adding new client : \n\n";
 
 		AddNewClient();
 
@@ -81,7 +81,6 @@ void AddClients()
 		cin >> Continue;
 		
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
-		i++;
 
 	} while (toupper(Continue) == 'Y');
 
