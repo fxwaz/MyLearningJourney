@@ -29,17 +29,6 @@ string ReadString()
 	return UserString;
 }
 
-bool IsSameAccountNumber(string Text, string Find, string deli)
-{
-	int DeliPosition = Text.find(deli);
-	string AccountNumber = Text.substr(0, DeliPosition);
-
-	if (AccountNumber == Find)
-		return true;
-	else
-		return false;
-}
-
 vector <string> SplitStringToVector(string Text, string Delimiter)
 {
 	vector <string> vString;
@@ -82,7 +71,7 @@ stClientData ConvertLineToRecord(string Text, string deli)
 	return stClient;
 }
 
-vector <stClientData> LoadClientDataFromFile(string FileName, string AccountNumber)
+vector <stClientData> LoadClientsDataFromFile(string FileName)
 {
 	fstream MyFile;
 	vector <stClientData> vClients;
@@ -98,12 +87,8 @@ vector <stClientData> LoadClientDataFromFile(string FileName, string AccountNumb
 
 		while (getline(MyFile, Line))
 		{
-			if (IsSameAccountNumber(Line,AccountNumber, "#//#"))
-			{
-				Client = ConvertLineToRecord(Line, "#//#");
-				vClients.push_back(Client);
-			}
-
+			Client = ConvertLineToRecord(Line, "#//#");
+			vClients.push_back(Client);
 		}
 
 		MyFile.close();
@@ -113,34 +98,46 @@ vector <stClientData> LoadClientDataFromFile(string FileName, string AccountNumb
 
 }
 
-void PrintClientData(vector <stClientData> &stClient)
+void PrintClientData(stClientData &stClient)
 {
-	for (stClientData& Client : stClient)
-	{
-		cout << "Account Number   :" << Client.AccountNumber << endl;
-		cout << "Pin Code         :" << Client.PinCode << endl;
-		cout << "Name             :" << Client.Name << endl;
-		cout << "Phone            :" << Client.Phone << endl;
-		cout << "Account Balance  :" << Client.AccountBalance << endl;
-	}
+		cout << "Account Number   :" << stClient.AccountNumber << endl;
+		cout << "Pin Code         :" << stClient.PinCode << endl;
+		cout << "Name             :" << stClient.Name << endl;
+		cout << "Phone            :" << stClient.Phone << endl;
+		cout << "Account Balance  :" << stClient.AccountBalance << endl;
 }
 
+bool FindAccountNumberInData(string &AccountNumber, stClientData& Data)
+{
+	vector <stClientData> vClient = LoadClientsDataFromFile(DataFileName);
+
+	for (stClientData &stClient : vClient)
+	{
+		if (stClient.AccountNumber == AccountNumber)
+		{
+			Data = stClient;
+			return true;
+		}
+	}
+
+	return false;
+}
 
 
 int main()
 {
 	string AccountNumber = ReadString();
+	stClientData ClientData;
 
-	vector <stClientData> vData = LoadClientDataFromFile(DataFileName, AccountNumber);
 
-	if (vData.empty())
+	if (FindAccountNumberInData(AccountNumber, ClientData))
 	{
-		cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!" << endl;
+		cout << endl;
+		PrintClientData(ClientData);
 	}
 	else
 	{
-		cout << "\nthe following are the client details : \n\n";
-		PrintClientData(vData);
+		cout << "\nAccount Number (" << AccountNumber << ") is not found!" << endl;
 	}
 
 
