@@ -62,7 +62,7 @@ stClientData ConvertLineToRecord(string Text, string deli)
 	return stClient;
 }
 
-vector <stClientData> TakeLineFromFileToDataVector(string FileName)
+vector <stClientData> LoadClientsDataFromFile(string FileName)
 {
 	fstream MyFile;
 	vector <stClientData> vClients;
@@ -89,18 +89,15 @@ vector <stClientData> TakeLineFromFileToDataVector(string FileName)
 
 }
 
-void PrintClientData(vector <stClientData> &DataInfo)
+void PrintClientData(stClientData Client)
 {
 
-	for (stClientData &sData : DataInfo)
-	{
-		cout << "| " << left << setw(20) << sData.AccountNumber;
-		cout << "| " << left << setw(20) << sData.PinCode;
-		cout << "| " << left << setw(30) << sData.Name;
-		cout << "| " << left << setw(20) << sData.Phone;
-		cout << "| " << left << setw(20) << sData.AccountBalance;
+		cout << "| " << left << setw(20) << Client.AccountNumber;
+		cout << "| " << left << setw(20) << Client.PinCode;
+		cout << "| " << left << setw(30) << Client.Name;
+		cout << "| " << left << setw(20) << Client.Phone;
+		cout << "| " << left << setw(20) << Client.AccountBalance;
 		cout << endl;
-	}
 
 }
 
@@ -121,9 +118,10 @@ void PrintClientsData(vector <stClientData> &DataInfo)
 	cout << string(150, '-') << endl;
 	cout << endl;
 
-
-	PrintClientData(DataInfo);
-
+	for (stClientData& Client : DataInfo)
+	{
+		PrintClientData(Client);
+	}
 
 	cout << endl;
 	cout << string(150, '-') << endl;
@@ -134,7 +132,7 @@ void PrintClientsData(vector <stClientData> &DataInfo)
 int main()
 {
 
-	vector <stClientData> vData = TakeLineFromFileToDataVector(DataFileName);
+	vector <stClientData> vData = LoadClientsDataFromFile(DataFileName);
 	PrintClientsData(vData);
 
 }
